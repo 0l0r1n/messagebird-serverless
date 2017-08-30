@@ -1,5 +1,14 @@
 {
+  "scripts": {
+    "test": "jest",
+    "lint": "./node_modules/.bin/esw -w"
+  },
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "messagebird": "^2.1.3"
+  },
+  "devDependencies": {
+    "eslint": "^4.5.0",
+    "jest": "^20.0.4"
   }
 }
