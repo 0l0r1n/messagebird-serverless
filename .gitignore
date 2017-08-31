@@ -4,4 +4,6 @@ jspm_packages
 
 # Serverless directories
 .serverless
-secrets*
+
+# secrets
+secrets.dev.yml

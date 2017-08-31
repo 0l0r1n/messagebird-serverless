@@ -2,17 +2,22 @@ service: messagebird-serverless
 
 plugins:
   - serverless-webpack
+  - serverless-secrets-plugin
 
 custom:
+  
   webpackIncludeModules:
     packagePath: './package.json'
   
 provider:
   name: aws
   runtime: nodejs6.10
+  stage: dev
+  environment:
+    ACCESS_KEY: secrets.dev.ACCESS_KEY
 
 functions:
-  hello:
-    handler: handler.hello
+  sendSms:
+    handler: handler.sendSms
 
 
