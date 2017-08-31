@@ -1,4 +1,5 @@
-let nodeExternals = require('webpack-node-externals')
+const nodeExternals = require('webpack-node-externals')
+const path = require('path')
 
 module.exports = {
     entry: ['babel-polyfill', './handler.js'],
@@ -6,21 +7,13 @@ module.exports = {
     devtool: 'source-map',
     externals: [nodeExternals()],
     module: {
-        preLoaders: [{
-            test: /\.js$/,
-            exclude: [
-                'node_modules/',
-                /_serverless.*$/,
-            ],
-            loader: 'eslint-loader',
-        }],
         loaders: [
             {
-                test: /\.js$/,
-                loaders: ['babel'],
+                loaders: ['babel-loader'],
                 include: __dirname,
                 exclude: [
                     /node_modules/,
+                    /_serverless.*$/,
                 ],
             },
         ],
