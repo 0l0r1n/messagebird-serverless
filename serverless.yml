@@ -5,7 +5,7 @@ plugins:
   - serverless-secrets-plugin
 
 custom:
-  
+  secrets: ${file(secrets.${opt:stage, self:provider.stage}.yml)}
   webpackIncludeModules:
     packagePath: './package.json'
   
@@ -14,7 +14,7 @@ provider:
   runtime: nodejs6.10
   stage: dev
   environment:
-    ACCESS_KEY: secrets.dev.ACCESS_KEY
+    ACCESS_KEY: ${self:custom.secrets.ACCESS_KEY}
 
 functions:
   sendSms:
