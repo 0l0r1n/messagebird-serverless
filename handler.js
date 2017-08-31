@@ -8,7 +8,7 @@ export function sendSms(event, context, callback) {
 
 }
 
-export function readBalance(event, context, callback) {
+export function getBalance(event, context, callback) {
   messageBirdClient.balance.read( (err, data) => {
     callback(err, data)
   })
