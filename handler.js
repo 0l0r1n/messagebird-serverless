@@ -4,12 +4,13 @@ const { ACCESS_KEY } = process.env
 
 const messageBirdClient = messageBird(ACCESS_KEY)
 
-export function sendSms(event, context, callback) {
-
-}
-
-export function getBalance(event, context, callback) {
-  messageBirdClient.balance.read( (err, data) => {
-    callback(err, data)
+export function sendSms(event) {
+  event.messagesToSend.map(messageToSend => {
+    const { originator, recipients, body } = messageToSend
+    const params = { originator, recipients, body }
+    messageBirdClient.messages.create(params, (err, data) => {
+      if (err) return console.log(err)
+      else console.log(data)
+    })
   })
 }
