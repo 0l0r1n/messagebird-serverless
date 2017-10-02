@@ -7,8 +7,7 @@ const messageBirdClient = messageBird(ACCESS_KEY)
 export function sendSms(event) {
   event.messagesToSend.map(messageToSend => {
     const { originator, recipients, body } = messageToSend
-    const params = { originator, recipients, body }
-    messageBirdClient.messages.create(params, (err, data) => {
+    messageBirdClient.messages.create({ originator, recipients, body }, (err, data) => {
       if (err) return console.log(err)
       else console.log(data)
     })
