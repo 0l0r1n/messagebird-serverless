@@ -20,10 +20,9 @@ functions:
   sendSms:
     handler: handler.sendSms
     events:
-      path: /sms
-      method: /post
-      cors: true
-      private: false
+      - http:
+          path: sms
+          method: post
 
 
 
