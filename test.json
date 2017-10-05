@@ -1,0 +1,11 @@
+{
+    "body": {
+        "messagesToSend": [
+          {
+            "recipients": "+31 6 14 23 83 75",
+            "originator": "test",
+            "body": "Hi there man!"
+          }
+        ]
+    }
+}
